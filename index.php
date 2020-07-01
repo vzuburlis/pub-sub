@@ -61,7 +61,6 @@ $router->set404(function() {
 });
 
 
-session_write_close();
 
 $router->run();
 
