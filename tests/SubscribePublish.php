@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 class SubscribePublishTest extends TestCase
 {
 
-	public function test_subscribe_publish()
-	{
+  public function test_subscribe_publish()
+  {
     @unlink('data/subscriptions.json');
     $response = $this->http_send_post('http://localhost:8000/subscribe/topic1', '{ "url": "http://localhost:8080/event"}');
     $this->assertTrue(file_exists('data/subscriptions.json'));
@@ -15,7 +15,7 @@ class SubscribePublishTest extends TestCase
     $response = $this->http_send_post('http://localhost:8000/publish/topic1', '{"message": "hello"}');
     $this->assertEquals($response, '{"topic":"topic1","data":"{\"message\": \"hello\"}"}');
   }
-  
+
   /********************/
   function http_send_post($url, $postString) {
     $options = [
