@@ -1,6 +1,6 @@
 <?php
 
-include('Bramus/Router/Router.php');
+include_once(__DIR__.'/vendor/autoload.php');
 
 $router = new Bramus\Router\Router();
 
@@ -44,7 +44,6 @@ $router->match('POST', 'publish/(.*)', function($topic){
     echo http_send_post($url, $postString);
   }
   $n = count($subscriptions[$topic]);
-  echo "Message published to $n subscribers";
 });
 
 
